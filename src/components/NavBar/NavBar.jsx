@@ -1,6 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
+import { fetchTopics } from "../../api/fetchData";
 
-const NavBar = ({ topics }) => {
+const NavBar = () => {
+    const [topics, setTopics] = useState([]);
+
+    useEffect(() => {
+      fetchTopics().then((result) => setTopics(result));
+    }, []);
   return (
     <nav>
       <ul>
