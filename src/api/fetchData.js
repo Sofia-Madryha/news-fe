@@ -27,3 +27,14 @@ export const fetchArticles = (topic, sortBy, order, page) => {
       console.log(error);
     });
 };
+
+export const fetchArticleById = (articleId) => {
+  return apiClient
+    .get(`/articles/${articleId}`, )
+    .then((response) => {
+      return response.data.article;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchArticles } from "../../api/fetchData";
 
 const Articles = () => {
@@ -35,12 +35,12 @@ const Articles = () => {
         ))}
       </select>
       {articles.map((article) => (
-        <div>
+        <Link to={`/article/${article.article_id}`} >
           <p>{article.topic}</p>
           <h3>{article.title}</h3>
           <p>{article.created_at}</p>
           <img src={article.article_img_url} />
-        </div>
+        </Link>
       ))}
     </>
   );
