@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchArticles } from "../../api/fetchData";
+import ArticleCard from "../ArticleCard/ArticleCard";
 
 const Articles = () => {
   const { topic } = useParams();
@@ -10,7 +11,6 @@ const Articles = () => {
     title: "title",
     user: "author",
   };
-    
 
   const [articles, setArticles] = useState([]);
   const [sortBy, setSortBy] = useState(sortByOptions.date);
@@ -31,16 +31,13 @@ const Articles = () => {
         }}
       >
         {Object.keys(sortByOptions).map((option) => (
-          <option value={sortByOptions[option]}>{option}</option>
+          <option key={option} value={sortByOptions[option]}>
+            {option}
+          </option>
         ))}
       </select>
       {articles.map((article) => (
-        <Link to={`/article/${article.article_id}`} >
-          <p>{article.topic}</p>
-          <h3>{article.title}</h3>
-          <p>{article.created_at}</p>
-          <img src={article.article_img_url} />
-        </Link>
+        <ArticleCard article={article} key={article.article_id} />
       ))}
     </>
   );

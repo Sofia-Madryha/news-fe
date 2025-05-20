@@ -1,24 +1,26 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { fetchTopics } from "../../api/fetchData";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
-    const [topics, setTopics] = useState([]);
+  const [topics, setTopics] = useState([]);
 
-    useEffect(() => {
-      fetchTopics().then((result) => setTopics(result));
-    }, []);
+  useEffect(() => {
+    fetchTopics().then((result) => setTopics(result));
+  }, []);
+    
+
   return (
     <nav>
       <ul>
-          {topics.map((topic) => (
-            <li key={topic.slug}>
-                <Link to={`/${topic.slug}`}>{topic.slug}</Link>
-            </li>
-          ))}
+        {topics.map((topic) => (
+          <li key={topic.slug}>
+            <Link to={`/${topic.slug}`}>{topic.slug}</Link>
+          </li>
+        ))}
       </ul>
-      </nav>
-         
-    
+    </nav>
   );
 };
+  
 export default NavBar;

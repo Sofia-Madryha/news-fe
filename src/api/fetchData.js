@@ -38,3 +38,14 @@ export const fetchArticleById = (articleId) => {
       console.log(error);
     });
 };
+
+export const fetchComments = (id) => {
+  return apiClient
+    .get(`/articles/${id}/comments`, )
+    .then((response) => {
+      return response.data.comments;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
