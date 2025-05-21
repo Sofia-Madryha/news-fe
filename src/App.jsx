@@ -1,7 +1,7 @@
 import Header from "./components/Header/Header";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Article from "./pages/Article";
+import { Article, Home } from "./pages";
+
 
 function App() {
   return (

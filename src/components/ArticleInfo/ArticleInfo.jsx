@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchArticleById } from "../../api/fetchData";
+import { ArticleLikes } from "../ArticleLikes";
 
 const ArticleInfo = ({ articleId }) => {
   const [articleInfo, setArticleInfo] = useState({});
@@ -13,7 +14,7 @@ const ArticleInfo = ({ articleId }) => {
   return (
     <div>
       <p>{articleInfo.topic}</p>
-      <p>Likes: {articleInfo.votes}</p>
+      <ArticleLikes articleId={articleId} />
       <h2>{articleInfo.title}</h2>
       <p>{articleInfo.author}</p>
       <img src={articleInfo.article_img_url} />

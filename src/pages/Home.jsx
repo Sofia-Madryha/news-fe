@@ -1,4 +1,4 @@
-import Articles from "../components/Articles/Articles";
+import { Articles } from "../components";
 
 const Home = () => {
   return (

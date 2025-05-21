@@ -8,11 +8,13 @@ const NavBar = () => {
   useEffect(() => {
     fetchTopics().then((result) => setTopics(result));
   }, []);
-    
 
   return (
     <nav>
       <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
         {topics.map((topic) => (
           <li key={topic.slug}>
             <Link to={`/${topic.slug}`}>{topic.slug}</Link>
@@ -22,5 +24,5 @@ const NavBar = () => {
     </nav>
   );
 };
-  
+
 export default NavBar;

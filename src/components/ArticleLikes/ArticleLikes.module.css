@@ -1,0 +1,9 @@
+.likes_icon {
+    color: transparent;
+    stroke: black;
+}
+
+.likes_icon_active {
+    color: red;
+    stroke: red;
+}
