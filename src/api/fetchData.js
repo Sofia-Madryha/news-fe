@@ -30,7 +30,7 @@ export const fetchArticles = (topic, sortBy, order, page) => {
 
 export const fetchArticleById = (articleId) => {
   return apiClient
-    .get(`/articles/${articleId}`, )
+    .get(`/articles/${articleId}`)
     .then((response) => {
       return response.data.article;
     })
@@ -41,11 +41,22 @@ export const fetchArticleById = (articleId) => {
 
 export const fetchComments = (id) => {
   return apiClient
-    .get(`/articles/${id}/comments`, )
+    .get(`/articles/${id}/comments`)
     .then((response) => {
       return response.data.comments;
     })
     .catch((error) => {
       console.log(error);
+    });
+};
+
+export const patchArticleVotes = (id, data) => {
+  return apiClient
+    .patch(`/articles/${id}`, data)
+    .then((response) => {
+      return response.data.article;
+    })
+    .catch((error) => {
+      return Promise.reject(error.response.data);
     });
 };

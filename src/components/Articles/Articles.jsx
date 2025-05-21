@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
 import { fetchArticles } from "../../api/fetchData";
-import ArticleCard from "../ArticleCard/ArticleCard";
+import { ArticleCard } from "../ArticleCard";
 
 const Articles = () => {
   const { topic } = useParams();
@@ -18,6 +19,7 @@ const Articles = () => {
   useEffect(() => {
     fetchArticles(topic, sortBy).then((result) => setArticles(result));
   }, [topic, sortBy]);
+
   return (
     <>
       <h2>{topic ? topic : "The newest articles"}</h2>
