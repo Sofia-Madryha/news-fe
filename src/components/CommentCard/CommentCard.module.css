@@ -1,0 +1,8 @@
+.comment_button{
+color: black;
+}
+
+.comment_button_disabled{
+    color: grey;
+    cursor: not-allowed;
+}

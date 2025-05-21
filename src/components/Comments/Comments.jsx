@@ -12,13 +12,15 @@ const Comments = ({ articleId }) => {
     });
   }, []);
 
-  
-
   return (
     <div>
       <h4>Comments:</h4>
       {comments.map((comment) => (
-        <CommentCard comment={comment} key={comment.comment_id} />
+        <CommentCard
+          comment={comment}
+          key={comment.comment_id}
+          setComments={setComments}
+        />
       ))}
       <CommentForm articleId={articleId} setComments={setComments} />
     </div>

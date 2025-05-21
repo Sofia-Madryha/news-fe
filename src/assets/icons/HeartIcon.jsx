@@ -1,4 +1,4 @@
-export const HeartIcon = ({ props }) => (
+export const HeartIcon = () => (
   <svg
     width="25px"
     height="25px"

@@ -71,3 +71,16 @@ export const postComment = (id, data) => {
       return Promise.reject(error.response.data);
     });
 };
+
+export const deleteComment = (id) => {
+  return apiClient
+    .delete(`/comments/${id}`)
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      console.log(error);
+
+      return Promise.reject(error.response.data);
+    });
+};
