@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchArticleById } from "../../api/fetchData";
+import { fetchArticleById } from "../../api/api";
 import { ArticleLikes } from "../ArticleLikes";
 
 const ArticleInfo = ({ articleId }) => {

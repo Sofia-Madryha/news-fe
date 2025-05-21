@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { fetchComments } from "../../api/fetchData";
+import { fetchComments } from "../../api/api";
 import { CommentCard } from "../CommentCard";
+import { CommentForm } from "../CommentForm";
 
 const Comments = ({ articleId }) => {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
     fetchComments(articleId).then((result) => {
-      setComments(result);
+      setComments(result.reverse());
     });
   }, []);
+
+  
 
   return (
     <div>
@@ -17,6 +20,7 @@ const Comments = ({ articleId }) => {
       {comments.map((comment) => (
         <CommentCard comment={comment} key={comment.comment_id} />
       ))}
+      <CommentForm articleId={articleId} setComments={setComments} />
     </div>
   );
 };
