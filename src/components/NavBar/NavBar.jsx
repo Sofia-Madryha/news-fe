@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { fetchTopics } from "../../api/fetchData";
+import { fetchTopics } from "../../api/api";
 import { useEffect, useState } from "react";
 
 const NavBar = () => {

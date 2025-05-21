@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchArticleById, patchArticleVotes } from "../api/fetchData";
+import { fetchArticleById, patchArticleVotes } from "../api/api";
 
 // TODO: replace with React Context  after user logic is implemented
 

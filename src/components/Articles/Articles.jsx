@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { fetchArticles } from "../../api/fetchData";
+import { fetchArticles } from "../../api/api";
 import { ArticleCard } from "../ArticleCard";
 
 const Articles = () => {

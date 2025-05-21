@@ -60,3 +60,14 @@ export const patchArticleVotes = (id, data) => {
       return Promise.reject(error.response.data);
     });
 };
+
+export const postComment = (id, data) => {
+  return apiClient
+    .post(`/articles/${id}/comments`, data)
+    .then((response) => {
+      return response.data.comment;
+    })
+    .catch((error) => {
+      return Promise.reject(error.response.data);
+    });
+};
