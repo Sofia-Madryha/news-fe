@@ -1,29 +1,33 @@
-import { useEffect, useState } from "react";
-import { fetchArticleById } from "../../api/api";
+
 import { ArticleLikes } from "../ArticleLikes";
 import { timeAgo } from "../../utils";
 
-const ArticleInfo = ({ articleId }) => {
-  const [articleInfo, setArticleInfo] = useState({});
 
-    const countTimeAgo = timeAgo(articleInfo.created_at);
+const ArticleInfo = ({ article }) => {
 
-  useEffect(() => {
-    fetchArticleById(articleId).then((result) => {
-      setArticleInfo(result);
-    });
-  }, []);
+
+  
+
+
+  const countTimeAgo = article ? timeAgo(article.created_at) : null;
+
+
 
   return (
-    <div>
-      <p>{articleInfo.topic}</p>
-      <ArticleLikes articleId={articleId} votes={articleInfo.votes}/>
-      <h2>{articleInfo.title}</h2>
-      <p>{articleInfo.author}</p>
-      <img src={articleInfo.article_img_url} />
-      <p>{countTimeAgo}</p>
-      <p>{articleInfo.body}</p>
-    </div>
+    <>
+      {article ? (
+        <div>
+          <p>{article.topic}</p>
+          <ArticleLikes articleId={article.article_id} votes={article.votes} />
+          <h2>{article.title}</h2>
+          <p>{article.author}</p>
+          <img src={article.article_img_url} />
+          <p>{countTimeAgo && countTimeAgo}</p>
+          <p>{article.body}</p>
+        </div>
+      ) : null}
+ 
+    </>
   );
 };
 

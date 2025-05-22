@@ -11,7 +11,7 @@ export const fetchTopics = () => {
       return response.data.topics;
     })
     .catch((error) => {
-      console.log(error);
+      return Promise.reject(error.response);
     });
 };
 
@@ -24,7 +24,7 @@ export const fetchArticles = (topic, sort_by, order, page) => {
       return response.data.articles;
     })
     .catch((error) => {
-      console.log(error);
+      return Promise.reject(error.response);
     });
 };
 
@@ -35,7 +35,7 @@ export const fetchArticleById = (articleId) => {
       return response.data.article;
     })
     .catch((error) => {
-      console.log(error);
+      return Promise.reject(error.response);
     });
 };
 
@@ -46,7 +46,7 @@ export const fetchComments = (id) => {
       return response.data.comments;
     })
     .catch((error) => {
-      console.log(error);
+      return Promise.reject(error.response);
     });
 };
 
@@ -79,8 +79,6 @@ export const deleteComment = (id) => {
       return response;
     })
     .catch((error) => {
-      console.log(error);
-
       return Promise.reject(error.response.data);
     });
 };

@@ -1,1 +1,2 @@
-export * from "./useLikeArticle"
+export * from "./useLikeArticle";
+export * from "./useFetchData";
