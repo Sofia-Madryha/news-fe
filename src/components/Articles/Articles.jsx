@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import { fetchArticles } from "../../api/api";
 import { ArticleCard } from "../ArticleCard";
@@ -9,16 +9,24 @@ const Articles = () => {
 
   const sortByOptions = {
     date: "created_at",
-    title: "title",
-    user: "author",
+    comments: "comment_count",
+    likes: "votes",
   };
 
   const [articles, setArticles] = useState([]);
   const [sortBy, setSortBy] = useState(sortByOptions.date);
+  const [order, setOrder] = useState("desc");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleSearchParams = (query, direction) => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set(query, direction);
+    setSearchParams(newParams);
+  };
 
   useEffect(() => {
-    fetchArticles(topic, sortBy).then((result) => setArticles(result));
-  }, [topic, sortBy]);
+    fetchArticles(topic, sortBy, order).then((result) => setArticles(result));
+  }, [topic, sortBy, order]);
 
   return (
     <>
@@ -30,6 +38,7 @@ const Articles = () => {
         value={sortBy}
         onChange={(e) => {
           setSortBy(e.target.value);
+          handleSearchParams("sort_by", e.target.value);
         }}
       >
         {Object.keys(sortByOptions).map((option) => (
@@ -37,6 +46,19 @@ const Articles = () => {
             {option}
           </option>
         ))}
+      </select>
+      <label htmlFor="order">Order</label>
+      <select
+        name="order"
+        id="order"
+        value={order}
+        onChange={(e) => {
+          setOrder(e.target.value);
+          handleSearchParams("order", e.target.value);
+        }}
+      >
+        <option value={"asc"}>asc</option>
+        <option value={"desc"}>desc</option>
       </select>
       {articles.map((article) => (
         <ArticleCard article={article} key={article.article_id} />
