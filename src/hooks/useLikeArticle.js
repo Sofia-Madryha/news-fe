@@ -3,16 +3,14 @@ import { fetchArticleById, patchArticleVotes } from "../api/api";
 
 // TODO: replace with React Context  after user logic is implemented
 
-export const useLikeArticle = (articleId) => {
+export const useLikeArticle = (articleId, votes) => {
   let [likes, setLikes] = useState();
   const [isLike, setIsLike] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchArticleById(articleId).then(({ votes }) => {
-      setLikes(votes);
-    });
-  }, [articleId]);
+    setLikes(votes);
+  }, [votes]);
 
   const handleLikeArticle = (e) => {
     e.stopPropagation();

@@ -16,7 +16,7 @@ const ArticleCard = ({ article }) => {
   return (
     <div onClick={goToArticlePage}>
       <p>{article.topic}</p>
-      <ArticleLikes articleId={article.article_id} />
+      <ArticleLikes articleId={article.article_id} votes={article.votes} />
 
       <h3>{article.title}</h3>
       <p>{countTimeAgo}</p>

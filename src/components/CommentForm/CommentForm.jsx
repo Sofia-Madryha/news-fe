@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { postComment } from "../../api/api";
+import { toast } from "react-toastify";
 
 const CommentForm = ({ articleId, setComments }) => {
   const [comment, setComment] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const handlePostComment = (e) => {
     e.preventDefault();
@@ -22,18 +22,19 @@ const CommentForm = ({ articleId, setComments }) => {
         setComments((currentComments) => {
           return [...currentComments, result];
         });
-        setIsLoading(false);
+
         setComment("");
       })
       .catch(() => {
+        toast.error("Something went wrong! Try again!");
+      })
+      .finally(() => {
         setIsLoading(false);
-        setError("Something wrong!");
       });
   };
 
   return (
     <>
-      {error ? <p>{error}</p> : null}
       {isLoading ? (
         <p>Loading...</p>
       ) : (
