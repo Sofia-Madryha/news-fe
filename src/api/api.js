@@ -15,10 +15,10 @@ export const fetchTopics = () => {
     });
 };
 
-export const fetchArticles = (topic, sortBy, order, page) => {
+export const fetchArticles = (topic, sort_by, order, page) => {
   return apiClient
     .get("/articles", {
-      params: { topic: topic, sort_by: sortBy, order: "asc" },
+      params: { topic, sort_by, order },
     })
     .then((response) => {
       return response.data.articles;
