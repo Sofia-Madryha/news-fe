@@ -1,6 +1,6 @@
 import Header from "./components/Header/Header";
 import { Route, Routes } from "react-router-dom";
-import { Article, Home } from "./pages";
+import { Article, ErrorPage, Home } from "./pages";
 import { ToastContainer } from "react-toastify";
 
 function App() {
@@ -8,8 +8,10 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/:topic?" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/articles/:topic?" element={<Home />} />
         <Route path="/article/:id" element={<Article />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
 
       <ToastContainer />

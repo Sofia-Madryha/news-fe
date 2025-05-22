@@ -27,6 +27,8 @@ const CommentCard = ({ comment, setComments }) => {
       });
   };
 
+  // TODO: deleteIcon is visible only for logged-in user 
+
   return (
     <div>
       <button

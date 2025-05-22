@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
 import { fetchArticles } from "../../api/api";
 import { ArticleCard } from "../ArticleCard";
+import { useFetchData } from "../../hooks";
 
 const Articles = () => {
   const { topic } = useParams();
@@ -13,20 +14,24 @@ const Articles = () => {
     likes: "votes",
   };
 
-  const [articles, setArticles] = useState([]);
   const [sortBy, setSortBy] = useState(sortByOptions.date);
   const [order, setOrder] = useState("desc");
+
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const { data, isLoading, error } = useFetchData(
+    fetchArticles,
+    "Oops! No articles match this topic",
+    topic,
+    sortBy,
+    order
+  );
 
   const handleSearchParams = (query, direction) => {
     const newParams = new URLSearchParams(searchParams);
     newParams.set(query, direction);
     setSearchParams(newParams);
   };
-
-  useEffect(() => {
-    fetchArticles(topic, sortBy, order).then((result) => setArticles(result));
-  }, [topic, sortBy, order]);
 
   return (
     <>
@@ -60,9 +65,16 @@ const Articles = () => {
         <option value={"asc"}>asc</option>
         <option value={"desc"}>desc</option>
       </select>
-      {articles.map((article) => (
-        <ArticleCard article={article} key={article.article_id} />
-      ))}
+
+      {!isLoading && data
+        ? data.map((article) => (
+            <ArticleCard article={article} key={article.article_id} />
+          ))
+        : null}
+
+      {isLoading ? <div>Loading...</div> : null}
+
+      {error ? <p>{error}</p> : null}
     </>
   );
 };

@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { fetchTopics } from "../../api/api";
 import { useEffect, useState } from "react";
+import { useFetchData } from "../../hooks";
 
 const NavBar = () => {
-  const [topics, setTopics] = useState([]);
 
-  useEffect(() => {
-    fetchTopics().then((result) => setTopics(result));
-  }, []);
+const { data: topics, isLoading } = useFetchData(
+    fetchTopics,
+  );
 
   return (
     <nav>
@@ -15,11 +15,11 @@ const NavBar = () => {
         <li>
           <Link to="/">Home</Link>
         </li>
-        {topics.map((topic) => (
+        {!isLoading && topics ? topics.map((topic) => (
           <li key={topic.slug}>
-            <Link to={`/${topic.slug}`}>{topic.slug}</Link>
+            <Link to={`/articles/${topic.slug}`}>{topic.slug}</Link>
           </li>
-        ))}
+        )): null}
       </ul>
     </nav>
   );
