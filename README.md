@@ -1,12 +1,45 @@
-# React + Vite
+# Live site: https://daily-digest-feed.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Overview
 
-Currently, two official plugins are available:
+This is the front-end application for a full-stack news platform, designed to display and interact with articles, topics, and user comments. Users can browse articles by topic, view full article content, upvote articles, and post/delete comments (if logged in).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Built using React, this responsive single-page application consumes data from a RESTful API built in the back end.
 
-## Expanding the ESLint configuration
+# Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- View a list of all articles or filter by topic
+- View full article details
+- Add like to articles
+- View and post comments
+- Delete your own comments
+
+# Back End Repository
+
+https://github.com/Sofia-Madryha/news-be.git
+
+# Running Locally
+
+- Node.js version > 20.0.0
+
+To run this project locally, follow these steps:
+
+1.  Clone the repository
+
+- git clone https://github.com/Sofia-Madryha/news-fe
+
+2.  Move into the project directory
+
+- cd news-fe
+
+3.  Install dependencies
+
+- npm install
+
+4. Start the development server
+
+- npm run dev
+
+By default, the app will run on http://localhost:5173
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by Northcoders (https://northcoders.com)

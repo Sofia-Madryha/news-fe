@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a9cdeb;
+  color: #444444;
+  padding: 20px 10px;
+}
+
+.header_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.header_logo {
+  font-family: "'Orbitron', Impact, sans-serif";
+  font-size: 20px;
+  color: #fff3b0;
+}
+
+.header_logo:hover {
+  color: #fff3b0;
+}
+
+@media (min-width: 420px) {
+  .header {
+    gap: 20px;
+    padding: 20px 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header_logo {
+    font-size: 30px;
+  }
+}

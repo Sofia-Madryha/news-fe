@@ -1,0 +1,145 @@
+.article_card {
+  display: flex;
+  flex-direction: row;
+  padding: 30px 10px 10px 10px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  height: 150px;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  border: 2px solid #a9cdeb;
+  box-shadow: 0 4px 12px rgba(169, 205, 235, 0.4);
+  background: linear-gradient(to right, #fff8d6, #ffffff);
+}
+.article_card_wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+}
+
+.article_card_info {
+  max-width: 120px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.article_card_info p {
+  font-size: 12px;
+color: #a9cdeb;
+  font-style: italic;
+}
+
+.article_card h3 {
+  font-size: 15px;
+  display: -webkit-box;
+  --webkit-box-orient: vertical;
+  --webkit-line-clamp: 4;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.article_card img {
+  width: 100px;
+  height: 100px;
+}
+
+.article_card_topic {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  background-color: #a9cdeb;
+  color: #333333;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.article_card_icons {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  display: flex;
+}
+
+.article_card_icons span {
+  height: 25px;
+}
+.article_card_icons div {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .article_card {
+    max-width: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .article_card {
+    max-width: 420px;
+    height: 100%;
+    max-height: 350px;
+  }
+
+  .article_card_wrapper {
+    flex-direction: column;
+  }
+
+  .article_card img {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+
+  .article_card_info {
+    max-width: 100%;
+    height: 100%;
+    gap: 10px;
+  }
+
+  .article_card_info p {
+    position: absolute;
+    top: 18px;
+    left: 170px;
+    font-size: 14px;
+  }
+
+  .article_card h3 {
+    margin-top: 20px;
+    font-size: 18px;
+    height: 42px;
+  }
+
+  .article_card_icons {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    display: flex;
+  }
+
+  .article_card_topic {
+    left: 15px;
+    top: 15px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .article_card {
+    max-width: 470px;
+  }
+
+  .article_card_info p {
+    left: 190px;
+
+  }
+}

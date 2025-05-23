@@ -7,12 +7,14 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/articles/:topic?" element={<Home />} />
-        <Route path="/article/:id" element={<Article />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/articles/:topic?" element={<Home />} />
+          <Route path="/article/:id" element={<Article />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </main>
 
       <ToastContainer />
     </>
