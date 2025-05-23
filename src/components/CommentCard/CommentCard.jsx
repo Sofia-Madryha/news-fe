@@ -30,20 +30,20 @@ const CommentCard = ({ comment, setComments }) => {
   // TODO: deleteIcon is visible only for logged-in user 
 
   return (
-    <div>
+    <div className={styles.comment_card}>
       <button
         onClick={handleDeleteComment}
         className={
-          isLoading ? styles.comment_button_disabled : styles.comment_button
+          isLoading ? styles.comment_card_button_disabled : styles.comment_card_button
         }
         disabled={isLoading}
       >
         <DeleteIcon />
       </button>
 
-      <div>{comment.author}</div>
-      <p>{comment.body}</p>
-      <div>{comment.votes}</div>
+      <div className={styles.comment_card_author}>{comment.author}</div>
+      <p className={styles.comment_card_body}>{comment.body}</p>
+      <div className={styles.comment_card_votes}>{comment.votes}</div>
     </div>
   );
 };

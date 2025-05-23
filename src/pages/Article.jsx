@@ -15,7 +15,7 @@ const Article = () => {
 
   return (
     <>
-     {!isLoading && data ?  <div>
+     {!isLoading && data ?  <div className="container">
         <ArticleInfo article={data} />
         <Comments articleId={id} />
       </div>: null}

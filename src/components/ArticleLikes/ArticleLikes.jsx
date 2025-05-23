@@ -8,7 +8,7 @@ const ArticleLikes = ({ articleId, votes }) => {
   const { likes, isLike, error, handleLikeArticle } = useLikeArticle(articleId, votes);
 
   return (
-    <p>
+    <div className={styles.likes}>
       {likes}
       <span
         onClick={handleLikeArticle}
@@ -17,7 +17,7 @@ const ArticleLikes = ({ articleId, votes }) => {
         <HeartIcon />
       </span>
       {error ? <span>{error}</span> : null}
-    </p>
+    </div>
   );
 };
 

@@ -4,6 +4,8 @@ import { CommentCard } from "../CommentCard";
 import { CommentForm } from "../CommentForm";
 import { useFetchData } from "../../hooks";
 
+import styles from "./Comments.module.css"
+
 const Comments = ({ articleId }) => {
   const [comments, setComments] = useState([]);
 
@@ -20,17 +22,18 @@ const Comments = ({ articleId }) => {
   return (
     <>
       {!isLoading && comments && comments.length > 0 ? (
-        <div>
-          <h4>Comments:</h4>
-          {comments.map((comment) => (
-            <CommentCard
-              comment={comment}
-              key={comment.comment_id}
-              setComments={setComments}
-            />
-          ))}
-          <CommentForm articleId={articleId} setComments={setComments} />
-        </div>
+
+          <section className={styles.comments}>
+            <h4>Comments:</h4>
+            {comments.map((comment) => (
+              <CommentCard
+                comment={comment}
+                key={comment.comment_id}
+                setComments={setComments}
+              />
+            ))}
+            <CommentForm articleId={articleId} setComments={setComments} />
+          </section>
       ) : null}
     </>
   );

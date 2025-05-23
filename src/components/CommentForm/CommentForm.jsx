@@ -2,6 +2,8 @@ import { useState } from "react";
 import { postComment } from "../../api/api";
 import { toast } from "react-toastify";
 
+import styles from "./CommentForm.module.css";
+
 const CommentForm = ({ articleId, setComments }) => {
   const [comment, setComment] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -33,14 +35,12 @@ const CommentForm = ({ articleId, setComments }) => {
       });
   };
 
-
-
   return (
     <>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <form onSubmit={handlePostComment}>
+        <form className={styles.comment_form} onSubmit={handlePostComment}>
           <input
             placeholder="add a comment..."
             name="comment"
@@ -49,8 +49,11 @@ const CommentForm = ({ articleId, setComments }) => {
               setComment(e.target.value);
             }}
             required
+            className={styles.comment_input}
           />
-          <button type="submit">post</button>
+          <button type="submit" className={styles.comment_button}>
+            post
+          </button>
         </form>
       )}
     </>

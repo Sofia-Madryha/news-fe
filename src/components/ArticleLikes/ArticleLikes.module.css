@@ -1,9 +1,14 @@
+.likes{
+    display: flex;
+        align-items: center;
+}
+
 .likes_icon {
     color: transparent;
     stroke: black;
 }
 
 .likes_icon_active {
-    color: red;
-    stroke: red;
+    color: #F28B82;
+    stroke: #F28B82;
 }

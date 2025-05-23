@@ -1,0 +1,19 @@
+.nav {
+  max-width: 330px;
+  width: 100%;
+}
+
+.nav_list {
+  display: flex;
+  justify-content: space-between;
+  gap:5px;
+}
+
+.nav_item {
+  text-transform: capitalize;
+  border: 1px solid transparent;
+}
+
+.nav_item:hover {
+  border-bottom: 1px solid #fff3b0;
+}
