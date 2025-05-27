@@ -1,7 +1,8 @@
-import Header from "./components/Header/Header";
+
 import { Route, Routes } from "react-router-dom";
 import { Article, ErrorPage, Home } from "./pages";
 import { ToastContainer } from "react-toastify";
+import { Footer, Header } from "./components";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>
+
+      <Footer/>
 
       <ToastContainer />
     </>

@@ -29,13 +29,12 @@ const ArticleCard = ({ article }) => {
           </div>
         </div>
 
-          <div className={styles.article_card_info}>
-            <h3>{article.title}</h3>
-            <p>{countTimeAgo}</p>
+        <div className={styles.article_card_info}>
+          <h3>{article.title}</h3>
+          <p>{countTimeAgo}</p>
         </div>
-        
-          <img src={article.article_img_url} />
 
+        <img src={article.article_img_url} />
       </div>
     </div>
   );

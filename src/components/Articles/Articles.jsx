@@ -37,7 +37,6 @@ const Articles = () => {
 
   return (
     <section className={`container ${styles.articles}`}>
-      {" "}
       <div className={styles.articles_inner}>
         <h2 className={styles.articles_title}>
           {topic ? topic : "The newest articles"}
