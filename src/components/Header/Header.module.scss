@@ -1,0 +1,44 @@
+@use "../../styles/shared/variables" as *;
+
+.header {
+  width: 100%;
+  max-height: 80px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(169 205 235 / 80%);
+  backdrop-filter: blur(1px);
+  padding: 16px 0;
+}
+
+.header_logo {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .header {
+    top: 0;
+  }
+
+  .header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header_logo {
+    display: block;
+    font-size: 28px;
+    color: $text-primary-color;
+
+    &_span {
+      background-color: $text-primary-color;
+      color: $white-color;
+      padding: 12px;
+      border-radius: 10px;
+    }
+  }
+}

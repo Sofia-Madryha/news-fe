@@ -39,7 +39,7 @@ const Articles = () => {
     <section className={`container ${styles.articles}`}>
       <div className={styles.articles_inner}>
         <h2 className={styles.articles_title}>
-          {topic ? topic : "The newest articles"}
+          {topic ? topic : "Hot Topics"}
         </h2>
 
         <div className={styles.articles_sort}>

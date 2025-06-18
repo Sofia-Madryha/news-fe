@@ -5,4 +5,4 @@ export * from "./ArticleCard";
 export * from "./ArticleInfo";
 export * from "./Comments";
 export * from "./CommentCard";
-export * from "./Footer"
+export * from "./Footer";

@@ -1,0 +1,44 @@
+@use "../../styles/shared/variables" as *;
+
+.nav {
+  width: 100%;
+}
+
+.nav_list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav_item {
+  max-height: 40px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 24px;
+  transition: max-height 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+    padding 0.6s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+.nav_item_active {
+  max-height: 50px;
+  padding: 12px 16px;
+  background-color: $text-primary-color;
+  color: $white-color;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    max-width: 420px;
+  }
+  .nav_item {
+    gap: 12px;
+    font-size: 16px;
+  }
+}

@@ -1,9 +1,9 @@
-.articles {
+/* .articles {
   margin: 20px 0;
-  background-color: #FFF9DB;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(169, 205, 235, 0.3);
-    color: #444444;
+  background-color: #fff9db;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(169, 205, 235, 0.3);
+  color: #444444;
 }
 
 .articles_inner {
@@ -17,7 +17,7 @@
   font-size: 24px;
   margin-bottom: 20px;
   color: #063a64;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .articles_sort {
@@ -36,7 +36,6 @@
   font-size: 14px;
   color: #333333;
   width: 160px;
-
 }
 
 .articles_sort_item label {
@@ -77,4 +76,4 @@
   .articles_title {
     font-size: 28px;
   }
-}
+} */

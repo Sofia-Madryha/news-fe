@@ -1,8 +1,8 @@
-
 import { Route, Routes } from "react-router-dom";
-import { Article, ErrorPage, Home } from "./pages";
 import { ToastContainer } from "react-toastify";
-import { Footer, Header } from "./components";
+
+import { Header } from "@/components";
+import { Article, ErrorPage, Home } from "@/pages";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         </Routes>
       </main>
 
-      <Footer/>
+      {/* <Footer /> */}
 
       <ToastContainer />
     </>

@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
-
+@import "./variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 *,
 *::before,
 *::after {
@@ -21,8 +21,8 @@ html {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Roboto", sans-serif;
-  background-color: #EDF3F9;
+  font-family: "Inter", sans-serif;
+  background-color: #edf3f9;
   color: #444444;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -32,9 +32,8 @@ main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-align-items: center;
-
-
+  align-items: center;
+  margin-bottom: 80px;
 }
 
 a {
@@ -56,20 +55,30 @@ ul {
 }
 
 .container {
-  padding: 0 10px;
-  max-width: 320px;
-  width:100%;
+  padding: 0 32px;
+  width: 100%;
 }
 
 img {
   width: 50px;
 }
 
-@media (min-width: 420px) {
-  .container {
-    max-width: 380px;
-  }
+::-webkit-scrollbar {
+  width: 8px;
 }
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 8px 0;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid $white-color;
+  border-radius: 10px;
+  background: $gray-color-400;
+}
+
+
 
 @media (min-width: 768px) {
   .container {
@@ -78,8 +87,12 @@ img {
 }
 
 @media (min-width: 1024px) {
+  main {
+    margin-top: 90px;
+  }
   .container {
     max-width: 920px;
+    padding: 0 10px;
   }
 }
 

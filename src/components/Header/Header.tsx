@@ -1,17 +1,15 @@
-import { Link } from "react-router-dom";
+import { NavBar } from "@/components";
 
-import { NavBar } from "../NavBar";
-
-import styles from "./Header.module.css";
-
+import styles from "./Header.module.scss";
 
 const Header = () => {
-
   return (
     <header className={styles.header}>
       <div className="container">
         <div className={styles.header_wrapper}>
-          <Link to="/" className={styles.header_logo}>NEWS</Link>
+          <h1 className={styles.header_logo}>
+            <span className={styles.header_logo_span}>Daily</span> digest
+          </h1>
           <NavBar />
         </div>
       </div>

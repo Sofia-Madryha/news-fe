@@ -1,10 +1,11 @@
+import { Topic } from "@/types";
 import axios from "axios";
 
 const apiClient = axios.create({
   baseURL: "https://news-be-spad.onrender.com/api",
 });
 
-export const fetchTopics = () => {
+export const fetchTopics = (): Promise<Topic[]> => {
   return apiClient
     .get("/topics")
     .then((response) => {
