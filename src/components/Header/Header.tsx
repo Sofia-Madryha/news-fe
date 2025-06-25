@@ -1,10 +1,20 @@
+import { useLocation } from "react-router-dom";
+
 import { NavBar } from "@/components";
 
 import styles from "./Header.module.scss";
 
 const Header = () => {
+  const location = useLocation();
+  const { pathname } = location;
+
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} 
+        ${
+          pathname.includes("/article") ? styles.header_article : styles.header
+        }`}
+    >
       <div className="container">
         <div className={styles.header_wrapper}>
           <h1 className={styles.header_logo}>

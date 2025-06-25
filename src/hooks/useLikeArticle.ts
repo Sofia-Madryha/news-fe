@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
-import { fetchArticleById, patchArticleVotes } from "../api/api";
+
+import { patchArticleVotes } from "@/api";
 
 // TODO: replace with React Context after user logic is implemented
 
-export const useLikeArticle = (articleId, votes) => {
-  let [likes, setLikes] = useState();
-  const [isLike, setIsLike] = useState(false);
-  const [error, setError] = useState(null);
+export const useLikeArticle = (articleId: number, votes: number) => {
+  const [likes, setLikes] = useState<number>(0);
+  const [isLike, setIsLike] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     setLikes(votes);
   }, [votes]);
 
-  const handleLikeArticle = (e) => {
+  const handleLikeArticle = (e: React.MouseEvent<HTMLSpanElement>) => {
     e.stopPropagation();
     if (!isLike) {
       setLikes((currentLikesCount) => currentLikesCount + 1);

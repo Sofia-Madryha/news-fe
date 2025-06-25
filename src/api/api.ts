@@ -1,4 +1,4 @@
-import { Topic } from "@/types";
+import { Article, CommentFormData, Topic } from "@/types";
 import axios from "axios";
 
 const apiClient = axios.create({
@@ -16,10 +16,16 @@ export const fetchTopics = (): Promise<Topic[]> => {
     });
 };
 
-export const fetchArticles = (topic, sort_by, order, page) => {
+export const fetchArticles = (
+  topic?: string,
+  sort_by?: string,
+  order?: string,
+  p?: number,
+  limit?: number
+): Promise<Article[]> => {
   return apiClient
     .get("/articles", {
-      params: { topic, sort_by, order },
+      params: { topic, sort_by, order, p, limit },
     })
     .then((response) => {
       return response.data.articles;
@@ -29,7 +35,7 @@ export const fetchArticles = (topic, sort_by, order, page) => {
     });
 };
 
-export const fetchArticleById = (articleId) => {
+export const fetchArticleById = (articleId: number) => {
   return apiClient
     .get(`/articles/${articleId}`)
     .then((response) => {
@@ -40,7 +46,7 @@ export const fetchArticleById = (articleId) => {
     });
 };
 
-export const fetchComments = (id) => {
+export const fetchComments = (id: number) => {
   return apiClient
     .get(`/articles/${id}/comments`)
     .then((response) => {
@@ -51,7 +57,7 @@ export const fetchComments = (id) => {
     });
 };
 
-export const patchArticleVotes = (id, data) => {
+export const patchArticleVotes = (id: number, data: any) => {
   return apiClient
     .patch(`/articles/${id}`, data)
     .then((response) => {
@@ -62,7 +68,7 @@ export const patchArticleVotes = (id, data) => {
     });
 };
 
-export const postComment = (id, data) => {
+export const postComment = (id: number, data: CommentFormData) => {
   return apiClient
     .post(`/articles/${id}/comments`, data)
     .then((response) => {
@@ -73,7 +79,7 @@ export const postComment = (id, data) => {
     });
 };
 
-export const deleteComment = (id) => {
+export const deleteComment = (id: number) => {
   return apiClient
     .delete(`/comments/${id}`)
     .then((response) => {

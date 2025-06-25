@@ -1,9 +1,11 @@
-import { Articles } from "../components";
+import { Articles, TopBar } from "@/components";
 
 const Home = () => {
   return (
     <>
+      <TopBar />
       <Articles />
+      <Articles isRecommended/>
     </>
   );
 };

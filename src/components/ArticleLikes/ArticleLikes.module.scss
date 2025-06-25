@@ -1,0 +1,36 @@
+@use "../../styles/shared/variables" as *;
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 16px;
+  color: $text-primary-color;
+  user-select: none;
+
+  &_count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.likes_icon {
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.likes_icon:hover {
+  color: $rec-color-400;
+}
+
+.likes_icon_active {
+  cursor: pointer;
+  color: $rec-color-500;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}

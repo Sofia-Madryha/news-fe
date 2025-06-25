@@ -1,0 +1,23 @@
+@use "../../styles/shared/variables" as *;
+
+.top_bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: $blue-color-100;
+  color: $text-secondary-color;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+
+  &_wrapper {
+    padding: 9px 0;
+  }
+
+  &_date {
+    color: $text-primary-color;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+}

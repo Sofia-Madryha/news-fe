@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-export const useFetchData = <T extends any[]>(
-  apiRequest: (...args: T[]) => Promise<T>,
-  err404Message?: string,
-  ...args: T[]
+export const useFetchData = <T, Args extends any[]>(
+  apiRequest: (...args: Args) => Promise<T>,
+  err404Message?: string | null,
+  ...args: Args
 ) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string | null>("");
   const [data, setData] = useState<T | null>(null);
 
   useEffect(() => {

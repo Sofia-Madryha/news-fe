@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-import { timeAgo } from "../../utils";
+import { timeAgo } from "@/utils";
 
-import { ArticleLikes } from "../ArticleLikes";
-import { CommentIcon } from "../../assets/icons";
+import { ArticleLikes } from "@/components";
+import { CommentIcon } from "@/assets";
 
-import styles from "./ArticleCard.module.css";
+import styles from "./ArticleCard.module.scss";
 
-const ArticleCard = ({ article }) => {
+const ArticleCard = ({ article }: any) => {
   const navigate = useNavigate();
 
   const goToArticlePage = () => {
@@ -19,7 +19,14 @@ const ArticleCard = ({ article }) => {
   return (
     <div onClick={goToArticlePage} className={styles.article_card}>
       <div className={styles.article_card_wrapper}>
-        <div className={styles.article_card_topic}>{article.topic}</div>
+        <img src={article.article_img_url} />
+        <div className={styles.article_card_info}>
+          <h4>{article.title}</h4>
+          <div className={styles.article_card_info_extra}>
+            <p>{article.topic}</p>
+            <p>{countTimeAgo}</p>
+          </div>
+        </div>
         <div className={styles.article_card_icons}>
           <ArticleLikes articleId={article.article_id} votes={article.votes} />
           <div>
@@ -28,13 +35,6 @@ const ArticleCard = ({ article }) => {
             <CommentIcon />
           </div>
         </div>
-
-        <div className={styles.article_card_info}>
-          <h3>{article.title}</h3>
-          <p>{countTimeAgo}</p>
-        </div>
-
-        <img src={article.article_img_url} />
       </div>
     </div>
   );

@@ -5,3 +5,4 @@ export { default as HomeIcon } from "./HomeIcon.js";
 export { default as ExploreIcon } from "./ExploreIcon.js";
 export { default as FavouritesIcon } from "./FavouritesIcon.js";
 export { default as ProfileIcon } from "./ProfileIcon.js";
+export { default as GoBackIcon } from "./GoBackIcon.tsx";

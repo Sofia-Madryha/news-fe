@@ -1,5 +1,5 @@
-@import "./variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@use "./variables.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:wght@400;600&display=swap");
 *,
 *::before,
 *::after {
@@ -22,8 +22,6 @@ html {
   display: flex;
   flex-direction: column;
   font-family: "Inter", sans-serif;
-  background-color: #edf3f9;
-  color: #444444;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -31,8 +29,8 @@ html {
 main {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   align-items: center;
+  flex-grow: 1;
   margin-bottom: 80px;
 }
 
@@ -78,17 +76,15 @@ img {
   background: $gray-color-400;
 }
 
-
-
 @media (min-width: 768px) {
   .container {
-    max-width: 680px;
+    max-width: 768px;
   }
 }
 
 @media (min-width: 1024px) {
   main {
-    margin-top: 90px;
+    margin-top: 80px;
   }
   .container {
     max-width: 920px;

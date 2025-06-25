@@ -33,6 +33,18 @@
   color: $white-color;
 }
 
+.article_info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+
+  &_items {
+    display: flex;
+    gap: 20px;
+  }
+}
+
 @media (min-width: 1024px) {
   .nav {
     max-width: 420px;

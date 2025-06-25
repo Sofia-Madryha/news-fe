@@ -1,4 +1,4 @@
-/* .comment_form {
+.comment_form {
   display: flex;
   gap: 10px;
   margin-top: 20px;
@@ -7,8 +7,7 @@
 }
 
 .comment_input {
-    width: 100%;
-  max-width: 180px;
+  width: 100%;
   padding: 10px 16px;
   border: 2px solid #a9cdeb;
   border-radius: 8px;
@@ -36,12 +35,11 @@
 
 .comment_button:hover {
   background-color: #063a64;
-color: #a9cdeb;
+  color: #a9cdeb;
 }
 
-
-@media(min-width: 768px){
-    .comment_input {
-        max-width: 300px;
-    }
-} */
+@media (min-width: 768px) {
+  .comment_input {
+    max-width: 500px;
+  }
+}

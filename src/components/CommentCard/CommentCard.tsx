@@ -1,19 +1,23 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-import { deleteComment } from "../../api/api";
-import { DeleteIcon } from "../../assets/icons";
+import { deleteComment } from "@/api";
+import { DeleteIcon } from "@/assets";
 
-import styles from "./CommentCard.module.css";
+import { CommentCardProps } from "./CommentCard.types";
 
-const CommentCard = ({ comment, setComments }) => {
+import { Comment } from "@/types";
+
+import styles from "./CommentCard.module.scss";
+
+const CommentCard = ({ comment, setComments }: CommentCardProps) => {
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const handleDeleteComment = () => {
     setIsLoading(true);
     deleteComment(comment.comment_id)
       .then(() => {
-        setComments((currentComments) =>
+        setComments((currentComments: Comment[]) =>
           currentComments.filter(
             (currentComment) => currentComment.comment_id !== comment.comment_id
           )
@@ -27,14 +31,16 @@ const CommentCard = ({ comment, setComments }) => {
       });
   };
 
-  // TODO: deleteIcon is visible only for logged-in user 
+  // TODO: deleteIcon is visible only for logged-in user
 
   return (
     <div className={styles.comment_card}>
       <button
         onClick={handleDeleteComment}
         className={
-          isLoading ? styles.comment_card_button_disabled : styles.comment_card_button
+          isLoading
+            ? styles.comment_card_button_disabled
+            : styles.comment_card_button
         }
         disabled={isLoading}
       >

@@ -1,0 +1,22 @@
+@use "../../styles/shared/variables" as *;
+.articles_cards {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .articles_cards {
+    flex-wrap: wrap;
+    max-width: 100%;
+    justify-content: center;
+  }
+}

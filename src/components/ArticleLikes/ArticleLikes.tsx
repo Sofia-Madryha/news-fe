@@ -1,15 +1,19 @@
-import { useLikeArticle } from "../../hooks";
-import { HeartIcon } from "../../assets/icons";
+import { useLikeArticle } from "@/hooks";
+import { HeartIcon } from "@/assets";
 
-import styles from "./ArticleLikes.module.css";
+import { ArticleLikesProps } from "./ArticleLikes.types";
 
-const ArticleLikes = ({ articleId, votes }) => {
-  
-  const { likes, isLike, error, handleLikeArticle } = useLikeArticle(articleId, votes);
+import styles from "./ArticleLikes.module.scss";
+
+const ArticleLikes = ({ articleId, votes }: ArticleLikesProps) => {
+  const { likes, isLike, error, handleLikeArticle } = useLikeArticle(
+    articleId,
+    votes
+  );
 
   return (
     <div className={styles.likes}>
-      {likes}
+      <span className={styles.likes_count}>{likes}</span>
       <span
         onClick={handleLikeArticle}
         className={isLike ? styles.likes_icon_active : styles.likes_icon}

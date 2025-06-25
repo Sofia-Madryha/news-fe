@@ -1,0 +1,40 @@
+@use "../../styles/shared/variables" as *;
+
+.article_nav {
+  width: 100%;
+  max-height: 80px;
+  position: fixed;
+  z-index: 8;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(169 205 235 / 80%);
+  backdrop-filter: blur(1px);
+  padding: 16px 0;
+  border-radius: 16px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.article_back {
+  cursor: pointer;
+}
+
+.article_info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_items {
+    display: flex;
+    gap: 20px;
+
+    &_comments {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

@@ -2,13 +2,15 @@ import { useState } from "react";
 import { postComment } from "../../api/api";
 import { toast } from "react-toastify";
 
-import styles from "./CommentForm.module.css";
+import { CommentFormProps } from "./CommentForm.types";
 
-const CommentForm = ({ articleId, setComments }) => {
+import styles from "./CommentForm.module.scss";
+
+const CommentForm = ({ articleId, setComments }: CommentFormProps) => {
   const [comment, setComment] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handlePostComment = (e) => {
+  const handlePostComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // TODO: change to user context

@@ -1,29 +1,27 @@
 import { useEffect, useState } from "react";
-import { fetchComments } from "../../api/api";
-import { CommentCard } from "../CommentCard";
-import { CommentForm } from "../CommentForm";
-import { useFetchData } from "../../hooks";
 
-import styles from "./Comments.module.css"
+import { Comment } from "@/types";
 
-const Comments = ({ articleId }) => {
-  const [comments, setComments] = useState([]);
+import { CommentCard, CommentForm } from "@/components";
 
-  const { data, isLoading } = useFetchData(fetchComments, null, articleId);
+import { CommentsProps } from "./Comments.types";
+
+import styles from "./Comments.module.scss";
+
+const Comments = ({ commentsData, isLoading, articleId }: CommentsProps) => {
+  // TODO: CommentForm is visible only for logged-in userf
+
+  const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    if (data) {
-      setComments(data);
-    }
-  }, [data]);
-
-// TODO: CommentForm is visible only for logged-in user 
+    setComments(commentsData);
+  }, [commentsData]);
 
   return (
     <>
       {!isLoading && comments && comments.length > 0 ? (
-
-          <section className={styles.comments}>
+        <section className={styles.comments} id="comments">
+          <div className={styles.comments_wrapper}>
             <h4>Comments:</h4>
             {comments.map((comment) => (
               <CommentCard
@@ -33,7 +31,8 @@ const Comments = ({ articleId }) => {
               />
             ))}
             <CommentForm articleId={articleId} setComments={setComments} />
-          </section>
+          </div>
+        </section>
       ) : null}
     </>
   );
