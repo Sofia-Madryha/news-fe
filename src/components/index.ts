@@ -13,3 +13,4 @@ export * from "./ArticleCards";
 export * from "./Loader";
 export * from "./ArticleContent";
 export * from "./ArticleNavBar";
+export * from "./Topics";

@@ -20,4 +20,15 @@
     line-height: 20px;
     font-weight: 600;
   }
+
+  &_label {
+    color: $text-primary-color;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .top_bar {
+    display: none;
+  }
 }

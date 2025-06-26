@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import { fetchArticles } from "@/api";
 import { ArticleCards, Loader } from "@/components";
@@ -11,8 +11,6 @@ import { ArticlesProps } from "./Articles.types";
 import styles from "./Articles.module.scss";
 
 const Articles = ({ isRecommended }: ArticlesProps) => {
-  const { topic } = useParams();
-
   const sortByOptions = {
     date: "created_at",
     comments: "comment_count",
@@ -24,10 +22,12 @@ const Articles = ({ isRecommended }: ArticlesProps) => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const topic = searchParams.get("topic");
+
   const { data, isLoading, error } = useFetchData(
     fetchArticles,
     "Oops! No articles match this topic",
-    topic,
+    topic ? topic : "",
     sortBy,
     order,
     isRecommended ? 2 : 1,
@@ -44,8 +44,6 @@ const Articles = ({ isRecommended }: ArticlesProps) => {
     <section className={styles.articles}>
       {!isLoading && data ? (
         <div className={styles.articles_inner}>
-          {topic ? <h2 className={styles.articles_title}>{topic} </h2> : null}
-
           {isRecommended ? (
             <h2 className={styles.articles_title}>Just for you </h2>
           ) : null}

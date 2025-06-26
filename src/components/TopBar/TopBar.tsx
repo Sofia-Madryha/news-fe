@@ -33,7 +33,7 @@ const TopBar = () => {
               <p className={styles.top_bar_date}>{currentDate}</p>
             </div>
           ) : (
-            <p>{activeLink?.label}</p>
+            <h2 className={styles.top_bar_label}>{activeLink?.label}</h2>
           )}
         </div>
       </div>

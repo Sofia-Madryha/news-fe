@@ -1,9 +1,10 @@
-import { Articles, TopBar } from "@/components";
+import { Articles, TopBar, Topics } from "@/components";
 
 const Explore = () => {
   return (
     <>
       <TopBar />
+      <Topics />
       <Articles />
     </>
   );

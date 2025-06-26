@@ -1,0 +1,44 @@
+@use "../../styles/shared/variables" as *;
+
+.topics {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  &_list {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    overflow-y: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  &_item {
+    padding: 6px 24px;
+    border: 1px solid $blue-color-100;
+    border-radius: 56px;
+    font-family: "Merriweather";
+    font-size: 16px;
+    font-weight: 600;
+    color: $text-primary-color;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    &:hover {
+      border-color: darken($blue-color-100, 10%);
+    }
+
+    &_active {
+      background-color: $blue-color-100;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .topics_list {
+    justify-content: center;
+  }
+}

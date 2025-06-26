@@ -6,24 +6,42 @@
   cursor: pointer;
   position: relative;
   z-index: 1;
+
+  &_explore {
+    max-width: 100%;
+  }
 }
 
 .article_card_wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
+
+  &_explore {
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+  }
 }
 
-.article_card img {
+.article_card_img {
   width: 269px;
   height: 269px;
   border-radius: 8px;
+
+  &_explore {
+    width: 112px;
+    height: 80px;
+  }
 }
 .article_card_info {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 16px 8px;
+  width: 100%;
+  position: relative;
 
   &_extra {
     display: flex;
@@ -33,6 +51,12 @@
     font-weight: 400;
     border-radius: 16px;
     text-transform: capitalize;
+
+    &_explore {
+      flex-direction: column;
+      justify-content: flex-start;
+      font-size: 12px;
+    }
   }
 }
 
@@ -46,24 +70,116 @@
 }
 
 .article_card_icons {
-  width: 96px;
   position: absolute;
   right: 5px;
   top: 5px;
   display: flex;
-  justify-content: space-between;
   gap: 4px;
   background-color: $blue-color-100;
   padding: 6px;
   border-radius: 16px;
+
+  span {
+    height: 25px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  &_explore {
+    width: fit-content;
+    height: fit-content;
+    bottom: 10px;
+    top: auto;
+    right: 0;
+    gap: 2px;
+    padding: 0px 4px;
+    font-size: 14px;
+
+    span svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
 }
 
-.article_card_icons span {
-  height: 25px;
+@media (min-width: 420px) {
+  .article_card_info {
+    &_extra {
+      flex-direction: row;
+
+      &_explore {
+        flex-direction: row;
+
+        p:first-child::after {
+          content: "•";
+          margin: 0 4px;
+          color: currentColor;
+        }
+      }
+    }
+  }
+
+  .article_card_icons {
+    &_explore {
+      bottom: 10px;
+      right: 15px;
+    }
+  }
 }
 
-.article_card_icons div {
-  display: flex;
-  align-items: center;
-  gap: 2px;
+@media (min-width: 768px) {
+  .article_card {
+    &_explore {
+      max-width: fit-content;
+    }
+
+    &_wrapper {
+      &_explore {
+        width: 350px;
+      }
+    }
+  }
+
+  .article_card_info {
+    &_extra {
+      &_explore {
+        flex-direction: column;
+
+        p:first-child::after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  .article_card_icons {
+    &_explore {
+      right: 5px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .article_card {
+    &_wrapper {
+      &_explore {
+        width: 460px;
+      }
+    }
+  }
+
+  .article_card_info {
+    &_extra {
+      &_explore {
+        flex-direction: row;
+
+        p:first-child::after {
+          content: "•";
+          margin: 0 4px;
+          color: currentColor;
+        }
+      }
+    }
+  }
 }
