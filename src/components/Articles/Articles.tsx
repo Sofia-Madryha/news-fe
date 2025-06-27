@@ -1,16 +1,15 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 
 import { fetchArticles } from "@/api";
 import { ArticleCards, Loader } from "@/components";
-
+import { useUserStore } from "@/store";
+import { Article } from "@/types";
 import { useFetchData } from "@/hooks";
 
 import { ArticlesProps } from "./Articles.types";
 
 import styles from "./Articles.module.scss";
-import { useUserStore } from "@/store";
-import { Article } from "@/types";
 
 const Articles = ({ isRecommended }: ArticlesProps) => {
   const sortByOptions = {
@@ -33,7 +32,8 @@ const Articles = ({ isRecommended }: ArticlesProps) => {
 
   const topic = searchParams.get("topic");
 
-  const limit = pathname === "/favourites" ? 15 : 10;
+  const limit =
+    pathname === "/favourites" ? 15 : pathname === "/explore" ? 10 : 9;
 
   const { data, isLoading, error } = useFetchData(
     fetchArticles,

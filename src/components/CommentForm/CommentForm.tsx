@@ -7,7 +7,6 @@ import { CommentFormProps } from "./CommentForm.types";
 import styles from "./CommentForm.module.scss";
 
 import { useUserStore } from "@/store";
-import { Loader } from "../Loader";
 
 const CommentForm = ({ articleId, setComments }: CommentFormProps) => {
   const [comment, setComment] = useState("");
