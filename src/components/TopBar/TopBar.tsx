@@ -4,12 +4,15 @@ import { navLinks } from "@/constants";
 import { getDate } from "@/utils";
 
 import styles from "./TopBar.module.scss";
+import { useUserStore } from "@/store";
 
 const TopBar = () => {
   const location = useLocation();
   const { pathname } = location;
 
   const { currentDate, hour } = getDate();
+
+  const { user } = useUserStore();
 
   let dayPeriod;
 
@@ -29,7 +32,10 @@ const TopBar = () => {
         <div className={styles.top_bar_wrapper}>
           {activeLink && activeLink.path === "/" ? (
             <div>
-              <p>Good {dayPeriod}</p>
+              <p>
+                Good {dayPeriod}
+                {user ? <span>, {user.name}</span> : null}
+              </p>
               <p className={styles.top_bar_date}>{currentDate}</p>
             </div>
           ) : (
