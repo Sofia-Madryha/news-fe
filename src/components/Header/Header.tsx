@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { NavBar } from "@/components";
 
@@ -17,9 +17,11 @@ const Header = () => {
     >
       <div className="container">
         <div className={styles.header_wrapper}>
-          <h1 className={styles.header_logo}>
-            <span className={styles.header_logo_span}>Daily</span> digest
-          </h1>
+          <Link to="/">
+            <h1 className={styles.header_logo}>
+              <span className={styles.header_logo_span}>Daily</span> digest
+            </h1>
+          </Link>
           <NavBar />
         </div>
       </div>
