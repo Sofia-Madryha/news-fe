@@ -1,11 +1,16 @@
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 import { useFetchData } from "@/hooks";
 import { fetchArticleById, fetchComments } from "@/api";
 import { ArticleInfo, ArticleNavBar, Comments, Loader } from "@/components";
 
+import styles from "./ArticleContent.module.scss";
+
 const ArticleContent = () => {
   const { id } = useParams();
+
+  const [page, setPage] = useState(1);
 
   const {
     data: article,
@@ -20,8 +25,12 @@ const ArticleContent = () => {
   const { data: comments, isLoading: commentsIsLoading } = useFetchData(
     fetchComments,
     null,
-    Number(id)
+    Number(id),
+    page,
+    5
   );
+
+  console.log(comments);
 
   return (
     <>
@@ -35,11 +44,30 @@ const ArticleContent = () => {
           <ArticleInfo article={article} />
         </>
       ) : null}
-      <Comments
-        articleId={Number(id)}
-        commentsData={comments}
-        isLoading={commentsIsLoading}
-      />
+      <div className={styles.comments}>
+        <Comments
+          articleId={Number(id)}
+          commentsData={comments}
+          isLoading={commentsIsLoading}
+        />{" "}
+        {comments ? (
+          <div className={styles.pagination}>
+            <button
+              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+              disabled={page === 1}
+            >
+              Prev
+            </button>
+            <span> {page}</span>
+            <button
+              onClick={() => setPage((prev) => prev + 1)}
+              disabled={comments?.length < 5}
+            >
+              Next
+            </button>
+          </div>
+        ) : null}
+      </div>
 
       {articleIsLoading ? <Loader /> : null}
       {error ? <p>{error}</p> : null}

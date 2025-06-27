@@ -129,18 +129,6 @@
 }
 
 @media (min-width: 768px) {
-  .article_card {
-    &_row {
-      max-width: fit-content;
-    }
-
-    &_wrapper {
-      &_row {
-        width: 350px;
-      }
-    }
-  }
-
   .article_card_info {
     &_extra {
       &_row {
@@ -162,6 +150,10 @@
 
 @media (min-width: 1024px) {
   .article_card {
+    &_row {
+      max-width: fit-content;
+    }
+
     &_wrapper {
       &_row {
         width: 460px;

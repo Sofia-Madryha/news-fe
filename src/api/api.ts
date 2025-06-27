@@ -53,9 +53,11 @@ export const fetchArticleById = (articleId: number) => {
     });
 };
 
-export const fetchComments = (id: number) => {
+export const fetchComments = (id: number, p?: number, limit?: number) => {
   return apiClient
-    .get(`/articles/${id}/comments`)
+    .get(`/articles/${id}/comments`, {
+      params: { p, limit },
+    })
     .then((response) => {
       return response.data.comments;
     })

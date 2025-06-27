@@ -20,6 +20,18 @@
   }
 }
 
+.no_favourites_message {
+  text-align: center;
+  font-size: 20px;
+
+  .profile_link {
+    color: #2563eb;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 0.25rem;
+  }
+}
+
 @media (min-width: 768px) {
   .articles_cards {
     &_column {
