@@ -28,3 +28,16 @@ export type CommentFormData = {
   username: string;
   body: string;
 };
+
+export type User = {
+  username: string;
+  name: string;
+  avatar_url: string;
+  liked_articles: number[];
+};
+
+export type UserPatchFormData = {
+  name?: string;
+  avatar_url?: string;
+  liked_articles?: number[];
+};

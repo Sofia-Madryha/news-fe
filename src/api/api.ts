@@ -1,5 +1,12 @@
-import { Article, CommentFormData, Topic } from "@/types";
 import axios from "axios";
+
+import {
+  Article,
+  CommentFormData,
+  Topic,
+  User,
+  UserPatchFormData,
+} from "@/types";
 
 const apiClient = axios.create({
   baseURL: "https://news-be-spad.onrender.com/api",
@@ -84,6 +91,50 @@ export const deleteComment = (id: number) => {
     .delete(`/comments/${id}`)
     .then((response) => {
       return response;
+    })
+    .catch((error) => {
+      return Promise.reject(error.response.data);
+    });
+};
+
+export const patchCommentVotes = (id: number, data: any) => {
+  return apiClient
+    .patch(`/comments/${id}`, data)
+    .then((response) => {
+      return response.data.comment;
+    })
+    .catch((error) => {
+      return Promise.reject(error.response.data);
+    });
+};
+
+export const fetchUserByUsername = (username: string) => {
+  return apiClient
+    .get(`/users/${username}`)
+    .then((response) => {
+      return response.data.user;
+    })
+    .catch((error) => {
+      return Promise.reject(error.response);
+    });
+};
+
+export const postUser = (userData: User) => {
+  return apiClient
+    .post(`/users`, userData)
+    .then((response) => {
+      return response.data.user;
+    })
+    .catch((error) => {
+      return Promise.reject(error.response.data);
+    });
+};
+
+export const patchUser = (username: string, userData: UserPatchFormData) => {
+  return apiClient
+    .patch(`/users/${username}`, userData)
+    .then((response) => {
+      return response.data.article;
     })
     .catch((error) => {
       return Promise.reject(error.response.data);

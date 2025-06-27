@@ -1,9 +1,9 @@
 .comment_form {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
+  margin-bottom: 20px;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .comment_input {
@@ -36,10 +36,4 @@
 .comment_button:hover {
   background-color: #063a64;
   color: #a9cdeb;
-}
-
-@media (min-width: 768px) {
-  .comment_input {
-    max-width: 500px;
-  }
 }

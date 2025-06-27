@@ -28,7 +28,7 @@
     cursor: pointer;
 
     &:hover {
-      border-color: darken($blue-color-100, 10%);
+      border-color: $blue-color-500;
     }
 
     &_active {

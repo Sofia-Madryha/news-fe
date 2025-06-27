@@ -13,7 +13,9 @@ const ArticleCards = ({ articles }: ArticleCardsProps) => {
   return (
     <div
       className={`${styles.articles_cards} ${
-        pathname.includes("/explore") ? styles.articles_cards_explore : ""
+        pathname.includes("/explore") || pathname.includes("/favourites")
+          ? styles.articles_cards_column
+          : ""
       }`}
     >
       {articles

@@ -58,7 +58,29 @@
     }
 
     &:hover {
-      border-color: darken($blue-color-100, 10%);
+      border-color: $blue-color-500;
+    }
+
+    &:focus {
+      border-color: $blue-color-500;
+      box-shadow: 0 0 0 2px rgba($blue-color-500, 0.3);
+    }
+  }
+}
+
+.pagination {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+
+  button {
+    border: 1px solid $blue-color-100;
+
+    &:hover {
+      border-color: $blue-color-500;
     }
 
     &:focus {

@@ -14,3 +14,4 @@ export * from "./Loader";
 export * from "./ArticleContent";
 export * from "./ArticleNavBar";
 export * from "./Topics";
+export * from "./UserProfile";

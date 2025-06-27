@@ -18,53 +18,53 @@ const ArticleCard = ({ article }: any) => {
 
   const countTimeAgo = timeAgo(article.created_at);
 
-  const isExplore = pathname.includes("/explore");
+  const isNotHome = pathname.includes("/explore") || pathname.includes("/favourites");
 
   return (
     <div
       onClick={goToArticlePage}
       className={`${styles.article_card} ${
-        isExplore ? styles.article_card_explore : styles.article_card
+        isNotHome ? styles.article_card_row : styles.article_card
       }`}
     >
       <div
         className={`${styles.article_card_wrapper} ${
-          isExplore
-            ? styles.article_card_wrapper_explore
+          isNotHome
+            ? styles.article_card_wrapper_row
             : styles.article_card_wrapper
         }`}
       >
         <img
           src={article.article_img_url}
           className={`${styles.article_card_img} ${
-            isExplore
-              ? styles.article_card_img_explore
+            isNotHome
+              ? styles.article_card_img_row
               : styles.article_card_img
           }`}
         />
         <div
           className={`${styles.article_card_info} ${
-            isExplore
-              ? styles.article_card_info_explore
+            isNotHome
+              ? styles.article_card_info_row
               : styles.article_card_info
           } `}
         >
           <h4>{article.title}</h4>
           <div
             className={`${styles.article_card_info_extra} ${
-              isExplore
-                ? styles.article_card_info_extra_explore
+              isNotHome
+                ? styles.article_card_info_extra_row
                 : styles.article_card_info_extra
             }`}
           >
-            <p>{isExplore ? article.author : article.topic}</p>
+            <p>{isNotHome ? article.author : article.topic}</p>
             <p>{countTimeAgo}</p>
           </div>
         </div>
         <div
           className={`${styles.article_card_icons} ${
-            isExplore
-              ? styles.article_card_icons_explore
+            isNotHome
+              ? styles.article_card_icons_row
               : styles.article_card_icons
           }`}
         >

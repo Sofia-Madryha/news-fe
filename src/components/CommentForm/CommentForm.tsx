@@ -6,17 +6,20 @@ import { CommentFormProps } from "./CommentForm.types";
 
 import styles from "./CommentForm.module.scss";
 
+import { useUserStore } from "@/store";
+import { Loader } from "../Loader";
+
 const CommentForm = ({ articleId, setComments }: CommentFormProps) => {
   const [comment, setComment] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const { user } = useUserStore();
+
   const handlePostComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // TODO: change to user context
-
     const formData = {
-      username: "grumpy19",
+      username: user?.username || "",
       body: comment,
     };
 
@@ -24,7 +27,7 @@ const CommentForm = ({ articleId, setComments }: CommentFormProps) => {
     postComment(articleId, formData)
       .then((result) => {
         setComments((currentComments) => {
-          return [...currentComments, result];
+          return [result, ...currentComments];
         });
 
         setComment("");
@@ -40,7 +43,7 @@ const CommentForm = ({ articleId, setComments }: CommentFormProps) => {
   return (
     <>
       {isLoading ? (
-        <p>Loading...</p>
+        <div className={styles.comment_form}>Loading...</div>
       ) : (
         <form className={styles.comment_form} onSubmit={handlePostComment}>
           <input

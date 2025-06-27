@@ -13,7 +13,7 @@
     display: none;
   }
 
-  &_explore {
+  &_column {
     flex-direction: column;
     flex-wrap: wrap;
     overflow-x: unset;
@@ -22,7 +22,7 @@
 
 @media (min-width: 768px) {
   .articles_cards {
-    &_explore {
+    &_column {
       flex-direction: row;
       flex-wrap: wrap;
       max-width: 100%;
